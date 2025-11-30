@@ -7,4 +7,3 @@ Funzionalità
 • Caricamento immagine
 • Estrazione colori dominanti
 • Calcolo percentuali per colore
-• Output in testo o file (eventuale grafico)
