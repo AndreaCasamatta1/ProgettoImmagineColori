@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Profilo{% endblock %}
+{% block content %}
+<style>
+  .profile-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f7f9fc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+  }
+  h1, h2 {
+    color: #333;
+  }
+  p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  form {
+    margin-top: 1.5rem;
+  }
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #444;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  button {
+    margin-top: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  .danger-button {
+    background-color: #dc3545;
+  }
+  .danger-button:hover {
+    background-color: #a71d2a;
+  }
+</style>
+
+<div class="profile-container">
+  <h1>Benvenuto, {{ user.username }}!</h1>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+
+
+  <hr>
+
+  <h2>Modifica Profilo</h2>
+  <form method="POST" action="{{ url_for('auth.edit_profile') }}">
+      <label for="username">Nuovo username:</label>
+      <input id="username" type="text" name="username" value="{{ user.username }}" required>
+
+      <button type="submit">Salva modifiche</button>
+  </form>
+
+  <hr>
+
+  <h2>Elimina Account</h2>
+  <form action="{{ url_for('auth.delete_account') }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare definitivamente il tuo account?');">
+      <button type="submit" class="danger-button">Elimina account</button>
+  </form>
+</div>
+
+{% endblock %}

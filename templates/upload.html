@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+Carica immagine
+{% endblock %}
+
+{% block content %}
+
+<div style="
+    max-width:620px;
+    margin:0 auto;
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.04);
+">
+
+    <h1 style="margin-top:0; font-size:24px;">Carica una nuova immagine</h1>
+    <p style="color:#6b7280; font-size:14px;">
+        Seleziona un file e clicca “Analizza colori”. La palette verrà salvata nella home.
+    </p>
+
+    <form action="{{ url_for('views.upload_post') }}" method="POST" enctype="multipart/form-data"
+          style="display:flex; flex-direction:column; gap:12px; margin-top:10px;">
+
+        <input type="file" name="image" accept="image/*" required
+               style="
+                    padding:12px;
+                    border:2px dashed #cbd5e1;
+                    border-radius:10px;
+                    background:#f8fafc;
+               ">
+
+        <button type="submit"
+                style="
+                    background:#111827;
+                    color:white;
+                    padding:10px 14px;
+                    border:none;
+                    border-radius:10px;
+                    font-weight:700;
+                    cursor:pointer;
+                ">
+            Analizza colori
+        </button>
+
+    </form>
+</div>
+
+{% endblock %}

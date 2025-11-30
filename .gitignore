@@ -1,0 +1,37 @@
+# Ambiente e segreti
+.env
+.env.*
+!.env.example
+
+# Virtual env
+.venv/
+venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Flask / DB locale
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads (cartella tenuta, file no)
+uploads/*
+!uploads/.gitignore
+!uploads/.gitkeep
+
+# Migrations cache
+migrations/__pycache__/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
